@@ -7,8 +7,6 @@ import com.jude.beam.expansion.BeamBaseActivity;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegate;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegateProvider;
 
-import retrofit2.Retrofit;
-
 /**
  * Author:  Chenglong.Lu
  * Email:   1053998178@qq.com | w490576578@gmail.com
@@ -20,14 +18,8 @@ public class APP extends Application {
     public void onCreate() {
         super.onCreate();
         BeamInit();
-        RetrofitInit();
     }
 
-    private void RetrofitInit() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://gank.io/api/")
-                .build();
-    }
 
     private void BeamInit() {
         Beam.init(this);

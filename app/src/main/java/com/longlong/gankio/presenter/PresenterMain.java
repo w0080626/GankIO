@@ -1,7 +1,7 @@
 package com.longlong.gankio.presenter;
 
 import com.jude.beam.expansion.BeamBasePresenter;
-import com.longlong.gankio.ui.ActivityMain;
+import com.longlong.gankio.ui.Activity.ActivityMain;
 
 /**
  * Author:  Chenglong.Lu

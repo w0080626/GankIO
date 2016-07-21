@@ -1,4 +1,5 @@
-package com.longlong.gankio.ui;
+package com.longlong.gankio.ui.Activity;
+
 
 import android.support.v7.app.AppCompatActivity;
 
