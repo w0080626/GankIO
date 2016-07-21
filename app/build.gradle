@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.longlong.gankio"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23+'
+    compile 'com.android.support:design:23+'
+    /**
+     * MVP 开发框架
+     */
+    compile 'com.jude:beam:3.0.1'
+    /**
+     * Retrofit2 网络请求框架
+     */
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    /**
+     * 关于我们页面
+     */
+    compile 'com.github.medyo:android-about-page:1.1.0'
+    /**
+     * 喜欢按钮动画
+     */
+    compile 'com.github.jd-alexander:LikeButton:0.2.0'
+    /**
+     * Android M 动态多权限获取
+     */
+    compile 'com.karumi:dexter:2.2.2'
+    /**
+     * 图片加载框架
+     */
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    /**
+     * 日志加载框架
+     */
+    compile 'com.orhanobut:logger:1.15'
+
+}
