@@ -1,5 +1,5 @@
 #GankIO
--
+
 Gank.io第三方客户端，包含Gank.io所有的内容，RxJava+Retrofit2做网络请求，使用Glide作为图片加载框架。并使用了Material Design，浓浓的安卓风。（主要这项目是用来学习最近特火的新框架，大神轻喷。）
 
 ## Blog: 
