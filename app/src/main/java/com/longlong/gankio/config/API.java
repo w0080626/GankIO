@@ -7,5 +7,5 @@ package com.longlong.gankio.config;
  * Description:
  */
 public class API {
-    public static final String baseUrl="http://Gank.io/api/";
+    public static final String baseUrl="http://gank.io/api/";
 }

@@ -22,9 +22,9 @@ import rx.functions.Action1;
 public class PresenterTextList extends BeamListFragmentPresenter<FragmentListText, Result> {
 
     @Override
-    protected void onCreate(@NonNull FragmentListText view, Bundle savedState) {
+    protected void onCreate(FragmentListText view, Bundle savedState) {
         super.onCreate(view, savedState);
-        onRefresh();
+//        onRefresh();
     }
 
     @Override

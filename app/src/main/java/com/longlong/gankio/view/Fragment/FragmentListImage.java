@@ -17,7 +17,7 @@ import com.longlong.gankio.view.viewHolder.ImageVH;
  * Description:
  */
 @RequiresPresenter(PresenterImageList.class)
-public class FragmentListImage extends BeamListFragment<PresenterImageList,Result> {
+public class FragmentListImage extends BeamListFragment<PresenterImageList, Result> {
     @Override
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
         return new ImageVH(parent);

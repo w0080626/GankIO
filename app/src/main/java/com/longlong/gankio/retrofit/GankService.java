@@ -1,9 +1,9 @@
 package com.longlong.gankio.retrofit;
 
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.model.bean.GanHuo;
 
 import retrofit2.http.GET;
-import retrofit2.http.Query;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -15,9 +15,9 @@ import rx.Observable;
 public interface GankService {
 
     @GET("data/{type}/{count}/{page}")
-    Observable<Result[]> getGanHuo(
-            @Query("type") String type,
-            @Query("count") int count,
-            @Query("page") int page
+    Observable<GanHuo> getGanHuo(
+            @Path("type") String type,
+            @Path("count") int count,
+            @Path("page") int page
     );
 }
