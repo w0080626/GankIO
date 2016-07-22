@@ -30,6 +30,7 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
         getAdapter().setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
+                //TODO.. 打开图片
             }
         });
     }
