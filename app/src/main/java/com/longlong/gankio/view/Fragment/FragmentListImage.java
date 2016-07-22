@@ -1,4 +1,4 @@
-package com.longlong.gankio.ui.Fragment;
+package com.longlong.gankio.view.Fragment;
 
 import android.view.ViewGroup;
 
@@ -6,9 +6,9 @@ import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.longlong.gankio.model.GanHuo;
-import com.longlong.gankio.presenter.PresenterImageList;
-import com.longlong.gankio.ui.viewHolder.ImageVH;
+import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.presenter.PresenterFragment.PresenterImageList;
+import com.longlong.gankio.view.viewHolder.ImageVH;
 
 /**
  * Author:  Chenglong.Lu
@@ -17,7 +17,7 @@ import com.longlong.gankio.ui.viewHolder.ImageVH;
  * Description:
  */
 @RequiresPresenter(PresenterImageList.class)
-public class FragmentListImage extends BeamListFragment<PresenterImageList, GanHuo> {
+public class FragmentListImage extends BeamListFragment<PresenterImageList,Result> {
     @Override
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
         return new ImageVH(parent);

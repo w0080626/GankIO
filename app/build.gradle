@@ -23,6 +23,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23+'
+    compile 'com.android.support:support-v4:23+'
     compile 'com.android.support:design:23+'
     /**
      * MVP 开发框架
@@ -59,4 +60,5 @@ dependencies {
      */
     compile 'com.jakewharton:butterknife:8.2.1'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
+
 }

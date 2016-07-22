@@ -1,5 +1,8 @@
 package com.longlong.gankio.retrofit;
 
+import com.longlong.gankio.config.API;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -11,22 +14,27 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Description:
  */
 public class GankRetrofit {
-
-    private static final String GANK_API = "http://gank.io/api/";
-    private static Retrofit retrofit;
-
-    public static Retrofit getRetrofit() {
-        if (retrofit == null) {
-            synchronized (GankRetrofit.class) {
-                if (retrofit == null) {
-                    retrofit = new Retrofit.Builder()
-                            .baseUrl(GANK_API)
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                            .build();
-                }
-            }
+    public  static GankService mService;
+    public static GankService getService(){
+        if(mService==null){
+            createService();
         }
-        return retrofit;
+        return mService;
+    }
+
+    private static void createService(){
+        mService = createRetrofit().create(GankService.class);
+    }
+
+    private static Retrofit createRetrofit(){
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(API.baseUrl)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .client(client)
+                .build();
+        return  retrofit;
     }
 }

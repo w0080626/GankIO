@@ -1,4 +1,4 @@
-package com.longlong.gankio.ui.viewHolder;
+package com.longlong.gankio.view.viewHolder;
 
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.longlong.gankio.R;
-import com.longlong.gankio.model.GanHuo;
+import com.longlong.gankio.model.bean.Result;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
  * Date:   2016/07/22
  * Description:
  */
-public class ImageVH extends BaseViewHolder<GanHuo.Result> {
+public class ImageVH extends BaseViewHolder<Result> {
     @BindView(R.id.image)
     ImageView image;
 
@@ -27,7 +27,7 @@ public class ImageVH extends BaseViewHolder<GanHuo.Result> {
     }
 
     @Override
-    public void setData(GanHuo.Result data) {
+    public void setData(Result data) {
         super.setData(data);
         Glide.with(getContext()).load(data.getUrl()).crossFade().placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(image);
     }
