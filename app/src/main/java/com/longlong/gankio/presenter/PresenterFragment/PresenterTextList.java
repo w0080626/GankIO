@@ -9,9 +9,7 @@ import com.longlong.gankio.model.ListModel;
 import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.view.Fragment.FragmentListText;
 
-import java.util.ArrayList;
-
-import rx.functions.Action1;
+import rx.functions.Action0;
 
 /**
  * Author:  Chenglong.Lu
@@ -20,11 +18,14 @@ import rx.functions.Action1;
  * Description:
  */
 public class PresenterTextList extends BeamListFragmentPresenter<FragmentListText, Result> {
+    private String title;
 
     @Override
     protected void onCreate(FragmentListText view, Bundle savedState) {
         super.onCreate(view, savedState);
-//        onRefresh();
+        Bundle bundle = view.getArguments();
+        title = bundle.getString("title");
+        onRefresh();
     }
 
     @Override
@@ -41,10 +42,10 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
     @Override
     public void onRefresh() {
         setCurPage(1);
-        ListModel.getResult("Android", 20, getCurPage()).doOnNext(new Action1<ArrayList<Result>>() {
+        ListModel.getResult(title, 20, getCurPage()).doAfterTerminate(new Action0() {
             @Override
-            public void call(ArrayList<Result> results) {
-
+            public void call() {
+                setCurPage(2);
             }
         }).unsafeSubscribe(getRefreshSubscriber());
     }
@@ -52,11 +53,6 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
 
     @Override
     public void onLoadMore() {
-        ListModel.getResult("Android", 20, getCurPage()).doOnNext(new Action1<ArrayList<Result>>() {
-            @Override
-            public void call(ArrayList<Result> results) {
-
-            }
-        }).unsafeSubscribe(getMoreSubscriber());
+        ListModel.getResult(title, 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 }

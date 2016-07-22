@@ -8,4 +8,5 @@ package com.longlong.gankio.config;
  */
 public class API {
     public static final String baseUrl="http://gank.io/api/";
+    public static final String[] TABS = new String[]{"福利", "Android", "iOS", "休息视频", "拓展资源", "前端"};
 }

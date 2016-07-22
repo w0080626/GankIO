@@ -22,7 +22,7 @@ public class PresenterMain extends BeamBasePresenter<ActivityMain> {
     @Override
     protected void onCreateView(@NonNull ActivityMain view) {
         super.onCreateView(view);
-        view.getTabLayout().setSelectedTabIndicatorColor(view.getResources().getColor(R.color.white));
+        view.getTabLayout().setSelectedTabIndicatorColor(view.getResources().getColor(R.color.colorAccent));
         fragmentManager = view.getSupportFragmentManager();
         replaceFragment(0);
     }

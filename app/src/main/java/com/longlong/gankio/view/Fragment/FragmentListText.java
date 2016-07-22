@@ -1,7 +1,9 @@
 package com.longlong.gankio.view.Fragment;
 
+import android.os.Bundle;
 import android.view.ViewGroup;
 
+import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
@@ -15,7 +17,8 @@ import com.longlong.gankio.view.viewHolder.TextVH;
  * Date:   2016/07/22
  * Description:
  */
-public class FragmentListText extends BeamListFragment<PresenterTextList,Result> {
+@RequiresPresenter(PresenterTextList.class)
+public class FragmentListText extends BeamListFragment<PresenterTextList, Result> {
     @Override
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
         return new TextVH(parent);
@@ -29,5 +32,13 @@ public class FragmentListText extends BeamListFragment<PresenterTextList,Result>
                 .setNoMoreAble(true)
                 .setErrorAble(true)
                 .setErrorTouchToResumeAble(true);
+    }
+
+    public static FragmentListText getInstance(String title) {
+        FragmentListText fragmentListText = new FragmentListText();
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title);
+        fragmentListText.setArguments(bundle);
+        return fragmentListText;
     }
 }
