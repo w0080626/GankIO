@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
-import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.presenter.PresenterFragment.PresenterTextList;
@@ -22,16 +21,6 @@ public class FragmentListText extends BeamListFragment<PresenterTextList, Result
     @Override
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
         return new TextVH(parent);
-    }
-
-    @Override
-    public ListConfig getConfig() {
-        return super.getConfig()
-                .setLoadmoreAble(true)
-                .setRefreshAble(true)
-                .setNoMoreAble(true)
-                .setErrorAble(true)
-                .setErrorTouchToResumeAble(true);
     }
 
     public static FragmentListText getInstance(String title) {

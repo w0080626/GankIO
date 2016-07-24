@@ -1,12 +1,15 @@
 package com.longlong.gankio.model.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Author:  Chenglong.Lu
  * Email:   1053998178@qq.com | w490576578@gmail.com
  * Date:   2016/07/22
- * Description:
+ * Description:返回结果实体类
  */
-public class Result {
+public class Result implements Parcelable {
     private String _id;
     private String createdAt;
     private String desc;
@@ -88,4 +91,49 @@ public class Result {
     public void setWho(String who) {
         this.who = who;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this._id);
+        dest.writeString(this.createdAt);
+        dest.writeString(this.desc);
+        dest.writeString(this.publishedAt);
+        dest.writeString(this.source);
+        dest.writeString(this.type);
+        dest.writeString(this.url);
+        dest.writeString(this.used);
+        dest.writeString(this.who);
+    }
+
+    public Result() {
+    }
+
+    protected Result(Parcel in) {
+        this._id = in.readString();
+        this.createdAt = in.readString();
+        this.desc = in.readString();
+        this.publishedAt = in.readString();
+        this.source = in.readString();
+        this.type = in.readString();
+        this.url = in.readString();
+        this.used = in.readString();
+        this.who = in.readString();
+    }
+
+    public static final Creator<Result> CREATOR = new Creator<Result>() {
+        @Override
+        public Result createFromParcel(Parcel source) {
+            return new Result(source);
+        }
+
+        @Override
+        public Result[] newArray(int size) {
+            return new Result[size];
+        }
+    };
 }

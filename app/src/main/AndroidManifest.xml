@@ -27,7 +27,7 @@
         </activity>
 
         <activity android:name=".view.Activity.ActivitySplash" />
-
+        <activity android:name=".view.Activity.ActivityWeb" />
     </application>
 
 </manifest>

@@ -7,6 +7,7 @@ import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.longlong.gankio.model.ListModel;
 import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.view.Activity.ActivityWeb;
 import com.longlong.gankio.view.Fragment.FragmentListText;
 
 import rx.functions.Action0;
@@ -17,7 +18,7 @@ import rx.functions.Action0;
  * Date:   2016/07/22
  * Description:
  */
-public class PresenterTextList extends BeamListFragmentPresenter<FragmentListText, Result> {
+public class PresenterTextList extends BeamListFragmentPresenter<FragmentListText, Result> implements RecyclerArrayAdapter.OnItemClickListener {
     private String title;
 
     @Override
@@ -25,18 +26,13 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
         super.onCreate(view, savedState);
         Bundle bundle = view.getArguments();
         title = bundle.getString("title");
-        onRefresh();
     }
 
     @Override
     protected void onCreateView(@NonNull FragmentListText view) {
         super.onCreateView(view);
-        getAdapter().setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                //TODO.. 跳转URL
-            }
-        });
+        onRefresh();
+        getAdapter().setOnItemClickListener(this);
     }
 
     @Override
@@ -55,4 +51,10 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
     public void onLoadMore() {
         ListModel.getResult(title, 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
+
+    @Override
+    public void onItemClick(int position) {
+        startActivityWithData(getAdapter().getItem(position), ActivityWeb.class);
+    }
+
 }

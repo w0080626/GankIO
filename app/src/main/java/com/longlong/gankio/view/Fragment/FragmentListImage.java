@@ -4,7 +4,6 @@ import android.view.ViewGroup;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
-import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.presenter.PresenterFragment.PresenterImageList;
@@ -23,13 +22,4 @@ public class FragmentListImage extends BeamListFragment<PresenterImageList, Resu
         return new ImageVH(parent);
     }
 
-    @Override
-    public ListConfig getConfig() {
-        return super.getConfig()
-                .setLoadmoreAble(true)
-                .setRefreshAble(true)
-                .setNoMoreAble(true)
-                .setErrorAble(true)
-                .setErrorTouchToResumeAble(true);
-    }
 }

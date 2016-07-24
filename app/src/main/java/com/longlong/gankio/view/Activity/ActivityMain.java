@@ -30,6 +30,7 @@ public class ActivityMain extends BeamBaseActivity<PresenterMain> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ButterKnife.bind(this);
     }
 
