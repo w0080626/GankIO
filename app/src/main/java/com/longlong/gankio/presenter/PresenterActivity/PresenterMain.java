@@ -1,12 +1,16 @@
 package com.longlong.gankio.presenter.PresenterActivity;
 
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
 
 import com.jude.beam.expansion.BeamBasePresenter;
 import com.longlong.gankio.R;
 import com.longlong.gankio.presenter.adapter.TabFragmentAdapter;
 import com.longlong.gankio.view.Activity.ActivityMain;
+
 
 /**
  * Author:  Chenglong.Lu
@@ -34,4 +38,7 @@ public class PresenterMain extends BeamBasePresenter<ActivityMain> {
         getView().getTabLayout().setupWithViewPager(getView().getViewPager());
     }
 
+    public void setupDrawerContent(NavigationView navigationView, final DrawerLayout drawerLayout) {
+
+    }
 }

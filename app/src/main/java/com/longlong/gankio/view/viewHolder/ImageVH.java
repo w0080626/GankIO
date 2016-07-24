@@ -1,7 +1,6 @@
 package com.longlong.gankio.view.viewHolder;
 
 import android.graphics.Bitmap;
-import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
@@ -33,13 +32,6 @@ public class ImageVH extends BaseViewHolder<Result> {
         Glide.with(getContext()).load(data.getUrl()).asBitmap().placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-
-                ViewGroup.LayoutParams params = imgPicture.getLayoutParams();
-                DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
-                int width = dm.widthPixels/2;//宽度为屏幕宽度一半
-                int height = resource.getHeight()*width/resource.getWidth();//计算View的高度
-                params.height = height;
-                imgPicture.setLayoutParams(params);
                 imgPicture.setImageBitmap(resource);
             }
         });
