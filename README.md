@@ -13,8 +13,7 @@ Gank.io第三方客户端，包含Gank.io所有的内容，RxJava+Retrofit2做�
 
 ## APK下载地址：
 
-#### [点击下载](http://www.luchenglong.com)
-
+#### 1.Fir.im:[点击跳转](http://fir.im/GankIO)
 
 ## Gradle：
 ``` xml
@@ -22,7 +21,7 @@ compile 'xxx'
 ```
 
 > 关于我，欢迎关注  
-  博客：[点击跳转](http://www.luchenglong.com) 微信：[luchenglong](url)  
+  博客：[点击跳转](http://www.luchenglong.com) 微信：[luchenglong](url) 微博：[@龙龙_童鞋](http://weibo.com/luchenglong12138)
 
 ## License
 ```
