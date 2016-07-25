@@ -8,9 +8,7 @@ Gank.io第三方客户端，包含Gank.io所有的内容，RxJava+Retrofit2做�
 
 ## Demo:  
 
-![](http://7xvzj2.com1.z0.glb.clouddn.com/2016_07_25_10_36_51.png)
-![](http://7xvzj2.com1.z0.glb.clouddn.com/2016_07_25_10_37_31.png)
-![](http://7xvzj2.com1.z0.glb.clouddn.com/2016_07_25_10_37_56.png)
+![](Screenshot/2016_07_25_10_36_51.png)&emsp;![](Screenshot/2016_07_25_10_37_31.png)
 
 
 ## APK下载地址：
