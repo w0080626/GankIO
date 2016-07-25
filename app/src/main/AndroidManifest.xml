@@ -28,6 +28,7 @@
 
         <activity android:name=".view.Activity.ActivitySplash" />
         <activity android:name=".view.Activity.ActivityWeb" />
+        <activity android:name=".view.Activity.ActivityPhoto" />
     </application>
 
 </manifest>

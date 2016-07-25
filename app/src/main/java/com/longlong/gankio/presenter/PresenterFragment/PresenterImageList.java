@@ -7,11 +7,13 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.longlong.gankio.model.ListModel;
 import com.longlong.gankio.model.bean.Result;
-import com.longlong.gankio.view.Activity.ActivityWeb;
+import com.longlong.gankio.view.Activity.ActivityPhoto;
 import com.longlong.gankio.view.Fragment.FragmentListImage;
 import com.longlong.library.utils.DeviceUtils;
 
-import rx.functions.Action0;
+import java.util.ArrayList;
+
+import rx.Subscriber;
 
 /**
  * Author:  Chenglong.Lu
@@ -39,12 +41,40 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
     @Override
     public void onRefresh() {
         setCurPage(1);
-        ListModel.getResult("福利", 20, getCurPage()).doAfterTerminate(new Action0() {
+        //这里想的是当重复刷新的时候如果不判断是否一致的话 List 会闪一下。 所以Beam 自带的RxJava 满足不了需求 只能这么写了。
+        ListModel.getResult("福利", 20, getCurPage()).subscribe(new Subscriber<ArrayList<Result>>() {
             @Override
-            public void call() {
+            public void onCompleted() {
                 setCurPage(2);
             }
-        }).unsafeSubscribe(getRefreshSubscriber());
+
+            @Override
+            public void onError(Throwable e) {
+                getView().stopRefresh();
+                if (getAdapter() != null && getAdapter().getCount() == 0) {
+                    //没有数据的时候出错，就显示全屏的错误提示
+                    getView().showError(e);
+                } else {
+                    //有数据时的出错，在最后一条显示错误提示
+                    getAdapter().pauseMore();
+                }
+            }
+
+            @Override
+            public void onNext(ArrayList<Result> results) {
+                onCompleted();
+                if (getAdapter().getCount() > 0) {
+                    if (!getAdapter().getItem(0).get_id().equals(results.get(0).get_id())) {
+                        getAdapter().clear();
+                        getAdapter().addAll(results);
+                    } else {
+                        getView().stopRefresh();
+                    }
+                } else {
+                    getAdapter().addAll(results);
+                }
+            }
+        });
     }
 
 
@@ -55,6 +85,6 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
 
     @Override
     public void onItemClick(int position) {
-        startActivityWithData(getAdapter().getItem(position), ActivityWeb.class);
+        startActivityWithData(getAdapter().getItem(position), ActivityPhoto.class);
     }
 }

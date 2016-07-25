@@ -3,10 +3,14 @@ package com.longlong.gankio;
 import android.app.Application;
 
 import com.jude.beam.Beam;
+import com.jude.beam.bijection.ActivityLifeCycleDelegate;
+import com.jude.beam.bijection.ActivityLifeCycleDelegateProvider;
+import com.jude.beam.bijection.BeamAppCompatActivity;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegate;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegateProvider;
+import com.longlong.gankio.delegate.MyActivityLifeCycleDelegate;
 
 /**
  * Author:  Chenglong.Lu
@@ -19,6 +23,12 @@ public class APP extends Application {
     public void onCreate() {
         super.onCreate();
         BeamInit();
+        Beam.setActivityLifeCycleDelegateProvider(new ActivityLifeCycleDelegateProvider() {
+            @Override
+            public ActivityLifeCycleDelegate createActivityLifeCycleDelegate(BeamAppCompatActivity activity) {
+                return new MyActivityLifeCycleDelegate(activity);
+            }
+        });
     }
 
 
