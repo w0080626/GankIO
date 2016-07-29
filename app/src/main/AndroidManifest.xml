@@ -12,6 +12,10 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <meta-data
+        android:name="com.longlong.gankio.config.MyGlideMoudle"
+        android:value="GlideModule" />
+
     <application
         android:name=".APP"
         android:allowBackup="true"

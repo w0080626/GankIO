@@ -1,15 +1,13 @@
 package com.longlong.gankio.view.viewHolder;
 
-import android.graphics.Bitmap;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.longlong.gankio.R;
 import com.longlong.gankio.model.bean.Result;
+
+import java.util.List;
 
 /**
  * Author:  Chenglong.Lu
@@ -19,9 +17,11 @@ import com.longlong.gankio.model.bean.Result;
  */
 public class ImageVH extends BaseViewHolder<Result> {
     ImageView imgPicture;
+    List<Integer> mHeights;
 
-    public ImageVH(ViewGroup parent) {
+    public ImageVH(ViewGroup parent, List<Integer> mHeights) {
         super(new ImageView(parent.getContext()));
+        this.mHeights = mHeights;
         imgPicture = (ImageView) itemView;
         imgPicture.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         imgPicture.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -29,11 +29,13 @@ public class ImageVH extends BaseViewHolder<Result> {
 
     @Override
     public void setData(Result data) {
-        Glide.with(getContext()).load(data.getUrl()).asBitmap().placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(new SimpleTarget<Bitmap>() {
-            @Override
-            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                imgPicture.setImageBitmap(resource);
-            }
-        });
+        // 随机高度, 模拟瀑布效果.
+        if (mHeights.size() <= getLayoutPosition()) {
+            mHeights.add((int) (500 + Math.random() * 300));
+        }
+        ViewGroup.LayoutParams lp = imgPicture.getLayoutParams();
+        lp.height = mHeights.get(getLayoutPosition());
+        imgPicture.setLayoutParams(lp);
+        Glide.with(getContext()).load(data.getUrl()).into(imgPicture);
     }
 }

@@ -24,7 +24,11 @@ import rx.Subscriber;
 public class PresenterImageList extends BeamListFragmentPresenter<FragmentListImage, Result> implements RecyclerArrayAdapter.OnItemClickListener {
 
     private void initPinterest() {
-        getView().getListView().setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        staggeredGridLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+
+        getView().getListView().setLayoutManager(staggeredGridLayoutManager);
+
         SpaceDecoration itemDecoration = new SpaceDecoration(DeviceUtils.dip2px(getView().getContext(), 8));//参数是距离宽度
         itemDecoration.setPaddingEdgeSide(true);//是否为左右2边添加padding.默认true.
         getView().getListView().addItemDecoration(itemDecoration);

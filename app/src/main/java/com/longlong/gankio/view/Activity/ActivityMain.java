@@ -48,7 +48,6 @@ public class ActivityMain extends BeamBaseActivity<PresenterMain> {
                 R.string.app_name);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {

@@ -9,6 +9,9 @@ import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.presenter.PresenterFragment.PresenterImageList;
 import com.longlong.gankio.view.viewHolder.ImageVH;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Author:  Chenglong.Lu
  * Email:   1053998178@qq.com | w490576578@gmail.com
@@ -17,9 +20,10 @@ import com.longlong.gankio.view.viewHolder.ImageVH;
  */
 @RequiresPresenter(PresenterImageList.class)
 public class FragmentListImage extends BeamListFragment<PresenterImageList, Result> {
+    List<Integer> mHeights = new ArrayList<>();
     @Override
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
-        return new ImageVH(parent);
+        return new ImageVH(parent,mHeights);
     }
 
 }
