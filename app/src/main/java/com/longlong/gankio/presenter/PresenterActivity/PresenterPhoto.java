@@ -1,7 +1,10 @@
 package com.longlong.gankio.presenter.PresenterActivity;
 
+import android.Manifest;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
@@ -9,9 +12,20 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.jude.beam.expansion.data.BeamDataActivityPresenter;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.longlong.gankio.R;
 import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.view.Activity.ActivityPhoto;
+import com.longlong.library.utils.BitmapUtils;
+import com.longlong.library.utils.NoDoubleMenuItemClickListener;
+import com.longlong.library.utils.SnackBarUtils;
+import com.longlong.library.utils.StringUtils;
+import com.longlong.library.utils.io.FilenameUtils;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -47,6 +61,7 @@ public class PresenterPhoto extends BeamDataActivityPresenter<ActivityPhoto, Res
                 });
             }
         });
+
     }
 
     public void hideOrShowToolbar() {
@@ -62,6 +77,45 @@ public class PresenterPhoto extends BeamDataActivityPresenter<ActivityPhoto, Res
         getView().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getView().getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_white_24dp);
         getView().getSupportActionBar().setTitle(getData().getDesc());
+        getView().getToolbar().setOnMenuItemClickListener(new NoDoubleMenuItemClickListener() {
+            @Override
+            public void onNoDoubleClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.savePhoto:
+                        checkPremission();
+                        break;
+                }
+            }
+        });
     }
+
+
+    private void checkPremission() {
+        Dexter.checkPermission(new PermissionListener() {
+            @Override
+            public void onPermissionGranted(PermissionGrantedResponse response) {
+                savePhoto();
+            }
+
+            @Override
+            public void onPermissionDenied(PermissionDeniedResponse response) {
+                SnackBarUtils.makeShort(getView().getToolbar(), "没有权限保存图片").danger();
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                token.continuePermissionRequest();
+            }
+        }, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    }
+
+    private void savePhoto() {
+        String photoPath = BitmapUtils.saveImageToGallery(getView(), ((BitmapDrawable) getView().getImageView().getDrawable()).getBitmap(), FilenameUtils.getName(getData().getUrl()));
+        if (StringUtils.notBlankAndNull(photoPath))
+            SnackBarUtils.makeShort(getView().getToolbar(), "图片位置:" + photoPath).info();
+        else
+            SnackBarUtils.makeShort(getView().getToolbar(), "保存失败").danger();
+    }
+
 
 }

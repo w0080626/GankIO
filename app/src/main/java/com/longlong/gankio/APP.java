@@ -10,6 +10,7 @@ import com.jude.beam.expansion.BeamBaseActivity;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegate;
 import com.jude.beam.expansion.overlay.ViewExpansionDelegateProvider;
+import com.karumi.dexter.Dexter;
 import com.longlong.gankio.delegate.MyActivityLifeCycleDelegate;
 
 /**
@@ -22,13 +23,10 @@ public class APP extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         BeamInit();
-        Beam.setActivityLifeCycleDelegateProvider(new ActivityLifeCycleDelegateProvider() {
-            @Override
-            public ActivityLifeCycleDelegate createActivityLifeCycleDelegate(BeamAppCompatActivity activity) {
-                return new MyActivityLifeCycleDelegate(activity);
-            }
-        });
+
+        Dexter.initialize(this);
     }
 
 
@@ -47,6 +45,12 @@ public class APP extends Application {
                         .setNoMoreAble(true)
                         .setErrorAble(true)
                         .setErrorTouchToResumeAble(true));
+        Beam.setActivityLifeCycleDelegateProvider(new ActivityLifeCycleDelegateProvider() {
+            @Override
+            public ActivityLifeCycleDelegate createActivityLifeCycleDelegate(BeamAppCompatActivity activity) {
+                return new MyActivityLifeCycleDelegate(activity);
+            }
+        });
     }
 
 }

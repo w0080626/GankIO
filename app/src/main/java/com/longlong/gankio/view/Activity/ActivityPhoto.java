@@ -2,6 +2,8 @@ package com.longlong.gankio.view.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.jude.beam.bijection.RequiresPresenter;
@@ -39,5 +41,19 @@ public class ActivityPhoto extends BeamDataActivity<PresenterPhoto, Result> {
 
     public AppBarLayout getAppBarLaytout() {
         return appbarLayout;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_photo, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.savePhoto) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
