@@ -1,14 +1,14 @@
 package com.longlong.gankio.model;
 
-import com.longlong.gankio.model.bean.GanHuo;
-import com.longlong.gankio.model.bean.Result;
-import com.longlong.gankio.retrofit.GankRetrofit;
+import com.jude.beam.model.AbsModel;
+import com.longlong.gankio.http.HttpMethods;
+import com.longlong.gankio.http.HttpResultFunc;
+import com.longlong.gankio.entity.Result;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -17,18 +17,13 @@ import rx.schedulers.Schedulers;
  * Date:   2016/07/22
  * Description:
  */
-public class ListModel {
-    public static Observable<ArrayList<Result>> getResult(String type, int count, int page) {
-        Observable<ArrayList<Result>> observable = GankRetrofit.getService().getGanHuo(type, count, page)
-                .map(new Func1<GanHuo, ArrayList<Result>>() {
-                    @Override
-                    public ArrayList<Result> call(GanHuo ganHuo) {
-                        if (!ganHuo.isError())
-                            return (ArrayList<Result>) ganHuo.getResults();
-                        else
-                            return new ArrayList<>();
-                    }
-                }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
-        return observable;
+public class ListModel extends AbsModel {
+    public static ListModel getInstance() {
+        return getInstance(ListModel.class);
+    }
+
+    public Observable<List<Result>> getResult(String type, int count, int page) {
+        return HttpMethods.getService().getGanHuo(type, count, page).map(new HttpResultFunc<List<Result>>())
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
     }
 }

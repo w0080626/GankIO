@@ -5,13 +5,13 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.model.ListModel;
-import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.view.Activity.ActivityPhoto;
 import com.longlong.gankio.view.Fragment.FragmentListImage;
 import com.longlong.library.utils.DeviceUtils;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -46,7 +46,7 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
     public void onRefresh() {
         setCurPage(1);
         //这里想的是当重复刷新的时候如果不判断是否一致的话 List 会闪一下。 所以Beam 自带的RxJava 满足不了需求 只能这么写了。
-        ListModel.getResult("福利", 20, getCurPage()).subscribe(new Subscriber<ArrayList<Result>>() {
+        ListModel.getInstance().getResult("福利", 20, getCurPage()).subscribe(new Subscriber<List<Result>>() {
             @Override
             public void onCompleted() {
                 setCurPage(2);
@@ -65,7 +65,7 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
             }
 
             @Override
-            public void onNext(ArrayList<Result> results) {
+            public void onNext(List<Result> results) {
                 onCompleted();
                 if (getAdapter().getCount() > 0) {
                     if (!getAdapter().getItem(0).get_id().equals(results.get(0).get_id())) {
@@ -84,7 +84,7 @@ public class PresenterImageList extends BeamListFragmentPresenter<FragmentListIm
 
     @Override
     public void onLoadMore() {
-        ListModel.getResult("福利", 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
+        ListModel.getInstance().getResult("福利", 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 
     @Override

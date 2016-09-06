@@ -9,7 +9,7 @@ import com.jude.beam.bijection.BeamAppCompatActivity;
  * Author:  Chenglong.Lu
  * Email:   1053998178@qq.com | w490576578@gmail.com
  * Date:   2016/07/25
- * Description:
+ * Description: Activity 基类
  */
 public class MyActivityLifeCycleDelegate extends ActivityLifeCycleDelegate {
     public MyActivityLifeCycleDelegate(BeamAppCompatActivity act) {

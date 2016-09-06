@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 
 import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.model.ListModel;
-import com.longlong.gankio.model.bean.Result;
 import com.longlong.gankio.view.Activity.ActivityWeb;
 import com.longlong.gankio.view.Fragment.FragmentListText;
 
@@ -38,7 +38,7 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
     @Override
     public void onRefresh() {
         setCurPage(1);
-        ListModel.getResult(title, 20, getCurPage()).doAfterTerminate(new Action0() {
+        ListModel.getInstance().getResult(title, 20, getCurPage()).doAfterTerminate(new Action0() {
             @Override
             public void call() {
                 setCurPage(2);
@@ -49,7 +49,7 @@ public class PresenterTextList extends BeamListFragmentPresenter<FragmentListTex
 
     @Override
     public void onLoadMore() {
-        ListModel.getResult(title, 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
+        ListModel.getInstance().getResult(title, 20, getCurPage()).unsafeSubscribe(getMoreSubscriber());
     }
 
     @Override

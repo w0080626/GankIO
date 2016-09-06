@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.data.BeamDataActivity;
 import com.longlong.gankio.R;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.presenter.PresenterActivity.PresenterPhoto;
 
 import butterknife.BindView;

@@ -8,7 +8,7 @@ import android.webkit.WebViewClient;
 
 import com.jude.beam.expansion.BeamBasePresenter;
 import com.longlong.gankio.R;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.view.Activity.ActivityWeb;
 
 /**

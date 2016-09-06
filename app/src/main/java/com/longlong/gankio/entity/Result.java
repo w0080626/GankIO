@@ -1,4 +1,4 @@
-package com.longlong.gankio.model.bean;
+package com.longlong.gankio.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;

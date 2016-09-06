@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.longlong.gankio.R;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,6 +38,6 @@ public class TextVH extends BaseViewHolder<Result> {
         title.setText(data.getDesc());
         type.setText(data.getType());
         author.setText(data.getWho());
-        time.setText(data.getPublishedAt());
+        time.setText(data.getPublishedAt().split("T")[0]);
     }
 }

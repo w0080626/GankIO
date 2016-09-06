@@ -5,7 +5,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 
 import java.util.List;
 
@@ -36,6 +36,6 @@ public class ImageVH extends BaseViewHolder<Result> {
         ViewGroup.LayoutParams lp = imgPicture.getLayoutParams();
         lp.height = mHeights.get(getLayoutPosition());
         imgPicture.setLayoutParams(lp);
-        Glide.with(getContext()).load(data.getUrl()).into(imgPicture);
+        Glide.with(getContext()).load(data.getUrl()).thumbnail(0.2f).into(imgPicture);
     }
 }

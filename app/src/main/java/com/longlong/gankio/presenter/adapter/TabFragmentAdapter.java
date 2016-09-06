@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.longlong.gankio.config.API;
+import com.longlong.gankio.config.Constant;
 import com.longlong.gankio.view.Fragment.FragmentListImage;
 import com.longlong.gankio.view.Fragment.FragmentListText;
 
@@ -29,7 +29,7 @@ public class TabFragmentAdapter extends FragmentPagerAdapter {
                 fragment = new FragmentListImage();
                 break;
             default:
-                fragment = FragmentListText.getInstance(API.TABS[position]);
+                fragment = FragmentListText.getInstance(Constant.TABS[position]);
                 break;
 
         }
@@ -38,12 +38,12 @@ public class TabFragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return API.TABS.length;
+        return Constant.TABS.length;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return API.TABS[position];
+        return Constant.TABS[position];
     }
 
 }

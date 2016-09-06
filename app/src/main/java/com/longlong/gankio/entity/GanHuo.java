@@ -1,6 +1,4 @@
-package com.longlong.gankio.model.bean;
-
-import java.util.List;
+package com.longlong.gankio.entity;
 
 /**
  * Author:  Chenglong.Lu
@@ -8,11 +6,11 @@ import java.util.List;
  * Date:   2016/07/21
  * Description:
  */
-public class GanHuo {
+public class GanHuo<T> {
     private boolean error;
-    private List<Result> results;
+    private T results;
 
-    public GanHuo(boolean error, List<Result> results) {
+    public GanHuo(boolean error, T results) {
         this.error = error;
         this.results = results;
     }
@@ -25,11 +23,11 @@ public class GanHuo {
         this.error = error;
     }
 
-    public List<Result> getResults() {
+    public T getResults() {
         return results;
     }
 
-    public void setResults(List<Result> results) {
+    public void setResults(T results) {
         this.results = results;
     }
 

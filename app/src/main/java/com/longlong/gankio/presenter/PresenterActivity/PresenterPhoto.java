@@ -19,7 +19,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.longlong.gankio.R;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.view.Activity.ActivityPhoto;
 import com.longlong.library.utils.BitmapUtils;
 import com.longlong.library.utils.NoDoubleMenuItemClickListener;

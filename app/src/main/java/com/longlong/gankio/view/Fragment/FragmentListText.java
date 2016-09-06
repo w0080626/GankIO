@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
-import com.longlong.gankio.model.bean.Result;
+import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.presenter.PresenterFragment.PresenterTextList;
 import com.longlong.gankio.view.viewHolder.TextVH;
 

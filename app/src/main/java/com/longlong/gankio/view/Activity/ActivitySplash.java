@@ -4,7 +4,8 @@ package com.longlong.gankio.view.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
+
+import com.jude.beam.bijection.BeamAppCompatActivity;
 
 /**
  * Author:  Chenglong.Lu
@@ -12,7 +13,7 @@ import android.support.v7.app.AppCompatActivity;
  * Date:   2016/07/21
  * Description: 闪屏页
  */
-public class ActivitySplash extends AppCompatActivity {
+public class ActivitySplash extends BeamAppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
