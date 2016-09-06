@@ -2,7 +2,6 @@ package com.longlong.gankio.http;
 
 
 import com.longlong.gankio.config.Constant;
-import com.longlong.library.utils.KLog;
 
 import java.util.concurrent.TimeUnit;
 
@@ -45,12 +44,8 @@ public class HttpMethods {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         builder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
-            @Override
-            public void log(String message) {
-                KLog.d(message);
-            }
-        });
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.addInterceptor(loggingInterceptor);
 
         return new Retrofit.Builder()
