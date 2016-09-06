@@ -64,7 +64,6 @@ dependencies {
      */
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
     compile project(path: ':library')
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
     /**
      * 仿IOS越界滑动
      */
