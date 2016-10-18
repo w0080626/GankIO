@@ -1,4 +1,4 @@
-package com.longlong.gankio.presenter.PresenterActivity;
+package com.longlong.gankio.module.web;
 
 import android.support.annotation.NonNull;
 import android.webkit.WebChromeClient;
@@ -9,7 +9,6 @@ import android.webkit.WebViewClient;
 import com.jude.beam.expansion.BeamBasePresenter;
 import com.longlong.gankio.R;
 import com.longlong.gankio.entity.Result;
-import com.longlong.gankio.view.Activity.ActivityWeb;
 
 /**
  * Author:  Chenglong.Lu

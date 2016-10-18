@@ -1,4 +1,4 @@
-package com.longlong.gankio.presenter.PresenterActivity;
+package com.longlong.gankio.module.main;
 
 import android.Manifest;
 import android.os.Build;
@@ -14,8 +14,6 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.longlong.gankio.R;
-import com.longlong.gankio.presenter.adapter.TabFragmentAdapter;
-import com.longlong.gankio.view.Activity.ActivityMain;
 
 import java.util.List;
 

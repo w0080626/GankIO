@@ -1,11 +1,10 @@
-package com.longlong.gankio.presenter.PresenterActivity;
+package com.longlong.gankio.module.photo;
 
 import android.Manifest;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
 import com.bumptech.glide.Glide;
@@ -20,7 +19,6 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.longlong.gankio.R;
 import com.longlong.gankio.entity.Result;
-import com.longlong.gankio.view.Activity.ActivityPhoto;
 import com.longlong.library.utils.BitmapUtils;
 import com.longlong.library.utils.NoDoubleMenuItemClickListener;
 import com.longlong.library.utils.SnackBarUtils;
@@ -53,12 +51,7 @@ public class PresenterPhoto extends BeamDataActivityPresenter<ActivityPhoto, Res
                 getView().getImageView().setImageBitmap(resource);
                 mAttacher = new PhotoViewAttacher(getView().getImageView());
                 mAttacher.update();
-                mAttacher.setOnViewTapListener(new PhotoViewAttacher.OnViewTapListener() {
-                    @Override
-                    public void onViewTap(View view, float v, float v1) {
-                        hideOrShowToolbar();
-                    }
-                });
+                mAttacher.setOnViewTapListener((view, v, v1) -> hideOrShowToolbar());
             }
         });
 

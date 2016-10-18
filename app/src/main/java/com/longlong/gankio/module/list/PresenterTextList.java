@@ -1,4 +1,4 @@
-package com.longlong.gankio.presenter.PresenterFragment;
+package com.longlong.gankio.module.list;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,8 +7,7 @@ import com.jude.beam.expansion.list.BeamListFragmentPresenter;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.model.ListModel;
-import com.longlong.gankio.view.Activity.ActivityWeb;
-import com.longlong.gankio.view.Fragment.FragmentListText;
+import com.longlong.gankio.module.web.ActivityWeb;
 
 import rx.functions.Action0;
 

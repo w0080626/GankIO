@@ -1,4 +1,4 @@
-package com.longlong.gankio.view.Activity;
+package com.longlong.gankio.module.main;
 
 
 import android.content.Intent;

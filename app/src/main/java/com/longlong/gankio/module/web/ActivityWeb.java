@@ -1,4 +1,4 @@
-package com.longlong.gankio.view.Activity;
+package com.longlong.gankio.module.web;
 
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -6,7 +6,6 @@ import android.webkit.WebView;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.longlong.gankio.R;
-import com.longlong.gankio.presenter.PresenterActivity.PresenterWeb;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

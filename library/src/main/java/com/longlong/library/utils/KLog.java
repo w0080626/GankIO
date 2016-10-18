@@ -56,7 +56,8 @@ public class KLog {
     private static boolean mIsGlobalTagEmpty = true;
     private static boolean IS_SHOW_LOG = true;
 
-    public static void init(@Nullable String tag) {
+    public static void init(@Nullable String tag,boolean isShowLog) {
+        IS_SHOW_LOG = isShowLog;
         mGlobalTag = tag;
         mIsGlobalTagEmpty = TextUtils.isEmpty(mGlobalTag);
     }

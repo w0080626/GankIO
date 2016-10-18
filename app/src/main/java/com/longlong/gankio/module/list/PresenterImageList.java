@@ -1,4 +1,4 @@
-package com.longlong.gankio.presenter.PresenterFragment;
+package com.longlong.gankio.module.list;
 
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
@@ -7,8 +7,7 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 import com.longlong.gankio.entity.Result;
 import com.longlong.gankio.model.ListModel;
-import com.longlong.gankio.view.Activity.ActivityPhoto;
-import com.longlong.gankio.view.Fragment.FragmentListImage;
+import com.longlong.gankio.module.photo.ActivityPhoto;
 import com.longlong.library.utils.DeviceUtils;
 
 import java.util.List;

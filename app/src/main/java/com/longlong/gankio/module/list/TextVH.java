@@ -1,4 +1,4 @@
-package com.longlong.gankio.view.viewHolder;
+package com.longlong.gankio.module.list;
 
 import android.view.ViewGroup;
 import android.widget.TextView;

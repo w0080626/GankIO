@@ -23,16 +23,16 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.Activity.ActivityMain">
+        <activity android:name=".module.main.ActivityMain">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.Activity.ActivitySplash" />
-        <activity android:name=".view.Activity.ActivityWeb" />
-        <activity android:name=".view.Activity.ActivityPhoto" />
+        <activity android:name=".module.main.ActivitySplash" />
+        <activity android:name=".module.web.ActivityWeb" />
+        <activity android:name=".module.photo.ActivityPhoto" />
     </application>
 
 </manifest>

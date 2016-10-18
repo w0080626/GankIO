@@ -1,4 +1,4 @@
-package com.longlong.gankio.view.Activity;
+package com.longlong.gankio.module.main;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -6,12 +6,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.MenuItem;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.longlong.gankio.R;
-import com.longlong.gankio.presenter.PresenterActivity.PresenterMain;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,13 +46,10 @@ public class ActivityMain extends BeamBaseActivity<PresenterMain> {
                 R.string.app_name);
         mDrawerToggle.syncState();
         drawerLayout.addDrawerListener(mDrawerToggle);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                menuItem.setChecked(true);
-                drawerLayout.closeDrawers();
-                return true;
-            }
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            menuItem.setChecked(true);
+            drawerLayout.closeDrawers();
+            return true;
         });
     }
 

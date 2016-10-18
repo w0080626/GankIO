@@ -1,4 +1,4 @@
-package com.longlong.gankio.presenter.adapter;
+package com.longlong.gankio.module.main;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -6,8 +6,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.longlong.gankio.config.Constant;
-import com.longlong.gankio.view.Fragment.FragmentListImage;
-import com.longlong.gankio.view.Fragment.FragmentListText;
+import com.longlong.gankio.module.list.FragmentListImage;
+import com.longlong.gankio.module.list.FragmentListText;
 
 /**
  * Author:  Chenglong.Lu
